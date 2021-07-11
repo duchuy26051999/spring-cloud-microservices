@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="fnkaya" id="create-08.07.2021-10:31">
+        <sql>
+            CREATE TABLE IF NOT EXISTS accounts (
+            id serial PRIMARY KEY,
+            email varchar (250) UNIQUE NOT NULL,
+            passwd varchar (250) NOT NULL
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet author="fnkaya" id="insert-08.07.2021-10:31">
+        <sql>
+            INSERT INTO accounts (id, email, passwd) VALUES(1, 'test1@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(2, 'test2@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(3, 'test3@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(4, 'test4@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(5, 'test5@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(6, 'test6@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(7, 'test7@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(8, 'test8@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(9, 'test9@gmail.com', '123456');
+            INSERT INTO accounts (id, email, passwd) VALUES(10, 'test10@gmail.com', '123456');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

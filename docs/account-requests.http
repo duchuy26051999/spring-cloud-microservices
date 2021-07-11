@@ -1,0 +1,117 @@
+POST http://localhost:9001/api/v1/account
+Content-Type: application/json
+
+{
+  "email": "test1@gmail.com",
+  "password": "123456",
+  "fullName": "Furkan Kaya-1",
+  "address": {
+    "city": "Ankara",
+    "district": "Çankaya",
+    "address": "İşçi Blokları Mahallesi"
+  }
+}
+
+###
+POST http://localhost:9001/api/v1/account/list
+Content-Type: application/json
+
+{
+  "accountList": [
+    {
+      "email": "test1@gmail.com",
+      "password": "123456",
+      "fullName": "Furkan Kaya-1",
+      "address": {
+        "city": "Ankara",
+        "district": "Çankaya",
+        "address": "İşçi Blokları Mahallesi"
+      }
+    },
+    {
+      "email": "test2@gmail.com",
+      "password": "123456",
+      "fullName": "Furkan Kaya-2",
+      "address": {
+        "city": "Ankara",
+        "district": "Çankaya",
+        "address": "İşçi Blokları Mahallesi"
+      }
+    },
+    {
+      "email": "test3@gmail.com",
+      "password": "123456",
+      "fullName": "Furkan Kaya-3",
+      "address": {
+        "city": "Ankara",
+        "district": "Çankaya",
+        "address": "İşçi Blokları Mahallesi"
+      }
+    },
+    {
+      "email": "test4@gmail.com",
+      "password": "123456",
+      "fullName": "Furkan Kaya-4",
+      "address": {
+        "city": "Ankara",
+        "district": "Çankaya",
+        "address": "İşçi Blokları Mahallesi"
+      }
+    },
+    {
+      "email": "test5@gmail.com",
+      "password": "123456",
+      "fullName": "Furkan Kaya-5",
+      "address": {
+        "city": "Ankara",
+        "district": "Çankaya",
+        "address": "İşçi Blokları Mahallesi"
+      }
+    },
+    {
+      "email": "test6@gmail.com",
+      "password": "123456",
+      "fullName": "Furkan Kaya-6",
+      "address": {
+        "city": "Ankara",
+        "district": "Çankaya",
+        "address": "İşçi Blokları Mahallesi"
+      }
+    }
+  ]
+}
+
+###
+PUT http://localhost:9001/api/v1/account/1
+Content-Type: application/json
+
+{
+  "email": "test1@gmail.com",
+  "password": "123456",
+  "fullName": "Furkan Kaya-11",
+  "address": {
+    "city": "Ankara",
+    "district": "Çankaya",
+    "address": "İşçi Blokları Mahallesi"
+  }
+}
+
+###
+DELETE http://localhost:9001/api/v1/account/1
+
+###
+DELETE http://localhost:9001/api/v1/account
+Content-Type: application/json
+
+[
+    1,2,3,4,5,6
+]
+
+###
+GET http://localhost:9001/api/v1/account/1
+Accept: application/json
+
+###
+GET http://localhost:9001/api/v1/account
+Accept: application/json
+

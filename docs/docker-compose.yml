@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: eteration
+      POSTGRES_USER: eteration
+      POSTGRES_PASSWORD: bootcamp
+    ports:
+      - 5432:5432
+#    volumes:
+#      - ./database/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+#      - ./database/fill_tables.sql:/docker-entrypoint-initdb.d/fill_tables.sql
+
+  cache:
+    image: redis
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
