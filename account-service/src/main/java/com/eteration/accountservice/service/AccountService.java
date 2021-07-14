@@ -3,6 +3,7 @@ package com.eteration.accountservice.service;
 import com.eteration.accountservice.model.Account;
 import com.eteration.accountservice.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Slf4j
 @CacheConfig(cacheNames = {"Account"})
 @RequiredArgsConstructor
 public class AccountService {

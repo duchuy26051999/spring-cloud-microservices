@@ -22,7 +22,6 @@ public class AccountController {
     private final AccountMapper mapper;
 
     @GetMapping(value = "{id}")
-
     public ResponseEntity<AccountResponseDto> get(@PathVariable(value = "id") Long id) {
         var dto = mapper.toDto(service.get(id));
 
