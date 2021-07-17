@@ -1,8 +1,8 @@
 package com.eteration.accountservice.controller;
 
-import com.eteration.accountservice.controller.dto.AccountRequestDto;
-import com.eteration.accountservice.controller.dto.AccountResponseDto;
-import com.eteration.accountservice.controller.mapper.AccountMapper;
+import com.eteration.accountservice.dto.AccountRequestDto;
+import com.eteration.accountservice.dto.AccountResponseDto;
+import com.eteration.accountservice.dto.mapper.AccountMapper;
 import com.eteration.accountservice.controller.path.ApiPath;
 import com.eteration.accountservice.service.AccountService;
 import lombok.RequiredArgsConstructor;

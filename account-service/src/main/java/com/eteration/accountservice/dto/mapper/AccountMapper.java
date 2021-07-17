@@ -1,7 +1,7 @@
-package com.eteration.accountservice.controller.mapper;
+package com.eteration.accountservice.dto.mapper;
 
-import com.eteration.accountservice.controller.dto.AccountRequestDto;
-import com.eteration.accountservice.controller.dto.AccountResponseDto;
+import com.eteration.accountservice.dto.AccountRequestDto;
+import com.eteration.accountservice.dto.AccountResponseDto;
 import com.eteration.accountservice.model.Account;
 import org.mapstruct.Mapper;
 

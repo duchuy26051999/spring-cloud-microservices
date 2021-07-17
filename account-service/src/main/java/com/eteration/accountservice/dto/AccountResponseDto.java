@@ -1,4 +1,4 @@
-package com.eteration.accountservice.controller.dto;
+package com.eteration.accountservice.dto;
 
 import com.eteration.accountservice.model.Address;
 import lombok.*;

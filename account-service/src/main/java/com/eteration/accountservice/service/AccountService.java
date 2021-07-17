@@ -20,8 +20,15 @@ public class AccountService {
 
     @Cacheable(key = "#id")
     public Account get(Long id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Verilen id değerine sahip bir kayıt bulunamadı."));
+        try {
+            return repository.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Verilen id değerine sahip bir kayıt bulunamadı."));
+        }
+        catch (IllegalArgumentException e) {
+            log.error(e.getMessage());
+        }
+
+        return null;
     }
 
     public List<Account> getAll() {

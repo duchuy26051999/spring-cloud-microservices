@@ -1,0 +1,55 @@
+POST http://localhost:9002/api/v1/event
+Content-Type: application/json
+
+{
+  "title": "Event-1",
+  "description": "Event description-1",
+  "type": "OFFLINE",
+  "address": {
+  "city": "Ankara",
+    "district": "Çankaya",
+    "address": "1516. Cad."
+  },
+  "ownerId": 1,
+  "quota": 100,
+  "startDate": "2021-07-20T14:00:00",
+  "endDate": "2021-07-20T16:00:00"
+}
+
+###
+PUT http://localhost:9002/api/v1/event/1
+Content-Type: application/json
+
+{
+  "email": "test1@gmail.com",
+  "password": "123456",
+  "fullName": "Furkan Kaya-11",
+  "address": {
+    "city": "Ankara",
+    "district": "Çankaya",
+    "address": "İşçi Blokları Mahallesi"
+  }
+}
+
+###
+DELETE http://localhost:9002/api/v1/event/1
+
+###
+DELETE http://localhost:9002/api/v1/event
+Content-Type: application/json
+
+[
+    1,2,3,4,5,6
+]
+
+###
+GET http://localhost:9002/api/v1/event/60ef1a3839a66048b00ff746
+Accept: application/json
+
+###
+GET http://localhost:9002/api/v1/event
+Accept: application/json
+
+###
+PUT http://localhost:9002/api/v1/event/60f2af0d9f29ae48551debd6/attendees/110
+Content-Type: application/json

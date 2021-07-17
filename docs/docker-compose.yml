@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres
-    container_name: postgres
+  account-db:
+    image: postgres:13.3
+    container_name: account-postgres
     restart: always
     environment:
       POSTGRES_DB: eteration
@@ -11,9 +11,56 @@ services:
       POSTGRES_PASSWORD: bootcamp
     ports:
       - '5432:5432'
+
   redis:
-    image: redis
+    image: redis:6.2.4
     container_name: redis
     restart: always
     ports:
       - '6379:6379'
+
+  event-db:
+    image: mongo:4.0.9
+    container_name: event-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: eteration
+      MONGO_INITDB_ROOT_PASSWORD: bootcamp
+    ports:
+      - '27017:27017'
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.17
+    container_name: elasticsearch
+    hostname: elasticsearch
+    environment:
+      discovery.type: single-node
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+
+#  logstash:
+#    image: docker.elastic.co/logstash/logstash:6.8.17
+#    container_name: logstash
+#    hostname: logstash
+#    restart: always
+#    volumes:
+#      - ./pipeline:/usr/share/logstash/pipeline/
+#    links:
+#      - elasticsearch:elasticsearch
+#    depends_on:
+#      - elasticsearch
+#    ports:
+#      - '5044:5044'
+#
+#  kibana:
+#    image: docker.elastic.co/kibana/kibana:6.8.17
+#    container_name: kibana
+#    hostname: kibana
+#    restart: always
+#    links:
+#      - elasticsearch:elasticsearch
+#    depends_on:
+#      - elasticsearch
+#    ports:
+#      - '5601:5601'
