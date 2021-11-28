@@ -1,0 +1,30 @@
+server:
+  port: 5010
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://localhost:6000/auth
+    username: fnkaya
+    password: fnkaya
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: false
+    change-log: classpath:/db.changelog-master.xml
+  cache:
+    host: localhost
+    port: 6002
+    time-to-live: 600000
+    redis:
+      key-prefix: aut
+eureka:
+  client:
+    instance:
+      hostname: ${EUREKA_SERVER_HOSTNAME:localhost}
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:5001/eureka/}
+logging:
+  file: /Users/fnkaya/IdeaProjects/mentorship/docs/logs/auth-service.log

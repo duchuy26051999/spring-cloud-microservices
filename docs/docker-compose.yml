@@ -1,66 +1,39 @@
 version: '3.8'
 
 services:
-  account-db:
+  auth-db:
     image: postgres:13.3
-    container_name: account-postgres
+    container_name: auth
     restart: always
     environment:
-      POSTGRES_DB: eteration
-      POSTGRES_USER: eteration
-      POSTGRES_PASSWORD: bootcamp
+      POSTGRES_DB: auth
+      POSTGRES_USER: fnkaya
+      POSTGRES_PASSWORD: fnkaya
     ports:
-      - '5432:5432'
-
-  redis:
-    image: redis:6.2.4
-    container_name: redis
+      - '6000:5432'
+  mentorship-db:
+    image: mysql:5.7
+    container_name: mentoship
     restart: always
     ports:
-      - '6379:6379'
-
-  event-db:
-    image: mongo:4.0.9
-    container_name: event-mongo
-    restart: always
+      - '6001:3306'
     environment:
-      MONGO_INITDB_ROOT_USERNAME: eteration
-      MONGO_INITDB_ROOT_PASSWORD: bootcamp
-    ports:
-      - '27017:27017'
+      MYSQL_ROOT_PASSWORD: root
+      services:
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.17
-    container_name: elasticsearch
-    hostname: elasticsearch
-    environment:
-      discovery.type: single-node
-    ports:
-      - '9200:9200'
-      - '9300:9300'
-
-#  logstash:
-#    image: docker.elastic.co/logstash/logstash:6.8.17
-#    container_name: logstash
-#    hostname: logstash
+#  redis:
+#    image: redis:6.2.4
+#    container_name: redis
 #    restart: always
-#    volumes:
-#      - ./pipeline:/usr/share/logstash/pipeline/
-#    links:
-#      - elasticsearch:elasticsearch
-#    depends_on:
-#      - elasticsearch
 #    ports:
-#      - '5044:5044'
-#
-#  kibana:
-#    image: docker.elastic.co/kibana/kibana:6.8.17
-#    container_name: kibana
-#    hostname: kibana
+#      - '6002:6379'
+
+#  mongo-db:
+#    image: mongo:4.0.9
+#    container_name: mentorship-mongo
 #    restart: always
-#    links:
-#      - elasticsearch:elasticsearch
-#    depends_on:
-#      - elasticsearch
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: fnkaya
+#      MONGO_INITDB_ROOT_PASSWORD: fnkaya
 #    ports:
-#      - '5601:5601'
+#      - '6001:27017'
