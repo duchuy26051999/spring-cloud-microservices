@@ -1,4 +1,4 @@
-package com.fnkaya.authservice.service.controller;
+package com.fnkaya.authservice.controller;
 
 import com.fnkaya.authservice.service.model.AccountDTO;
 import com.fnkaya.authservice.service.model.AccountInput;

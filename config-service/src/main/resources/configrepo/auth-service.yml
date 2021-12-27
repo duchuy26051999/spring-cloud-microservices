@@ -28,3 +28,6 @@ eureka:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:5001/eureka/}
 logging:
   file: /Users/fnkaya/IdeaProjects/mentorship/docs/logs/auth-service.log
+mntr:
+  gateway:
+    ip: 192.168.3.2

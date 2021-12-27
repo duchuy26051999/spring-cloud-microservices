@@ -1,17 +1,20 @@
 package com.fnkaya.authservice.service;
 
+import com.fnkaya.authservice.repository.AccountRepository;
+import com.fnkaya.authservice.service.domain.Account;
+import com.fnkaya.authservice.service.mapper.AccountMapper;
 import com.fnkaya.authservice.service.model.AccountDTO;
 import com.fnkaya.authservice.service.model.AccountInput;
-import com.fnkaya.authservice.service.mapper.AccountMapper;
-import com.fnkaya.authservice.repository.AccountRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +22,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @CacheConfig(cacheNames = {"Account"})
 @RequiredArgsConstructor
-public class AccountServiceImpl implements AccountService, UserDetailsService {
+public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository repository;
-    private final PasswordEncoder passwordEncoder;
     private final AccountMapper mapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -39,7 +42,8 @@ public class AccountServiceImpl implements AccountService, UserDetailsService {
 
     @Override
     public List<AccountDTO> getAll() {
-        return this.repository.findAll().stream().map(this.mapper::toDto).collect(Collectors.toList());
+        List<Account> accounts = this.repository.findAll();
+        return accounts.stream().map(mapper::toDto).collect(Collectors.toList());
     }
 
     @Override
@@ -48,6 +52,7 @@ public class AccountServiceImpl implements AccountService, UserDetailsService {
         if (existsByEmail) {
             throw new IllegalArgumentException(input.getEmail() + " bu mail adresi zaten var.");
         }
+        input.setPassword(this.passwordEncoder.encode(input.getPassword()));
         this.repository.save(this.mapper.toEntity(input));
     }
 }

@@ -1,6 +1,6 @@
 package com.fnkaya.authservice;
 
-import com.fnkaya.authservice.domain.Account;
+import com.fnkaya.authservice.service.domain.Account;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

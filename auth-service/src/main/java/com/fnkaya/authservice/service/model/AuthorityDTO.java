@@ -1,6 +1,6 @@
 package com.fnkaya.authservice.service.model;
 
-import java.util.Set;
+import com.fnkaya.authservice.service.domain.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,11 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class AccountDTO {
+public class AuthorityDTO {
 
-    private String email;
-
-    private String fullName;
-
-    private Set<AuthorityDTO> authorities;
+    private Role role;
 }

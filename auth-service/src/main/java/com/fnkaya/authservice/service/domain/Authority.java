@@ -1,7 +1,9 @@
-package com.fnkaya.authservice.domain;
+package com.fnkaya.authservice.service.domain;
 
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -28,6 +30,7 @@ public class Authority implements GrantedAuthority {
     @GeneratedValue
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Override

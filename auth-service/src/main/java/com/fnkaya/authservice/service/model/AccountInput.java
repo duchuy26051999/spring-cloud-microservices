@@ -1,9 +1,10 @@
 package com.fnkaya.authservice.service.model;
 
-import com.fnkaya.authservice.domain.Authority;
+import com.fnkaya.authservice.service.domain.Authority;
 import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,5 +40,5 @@ public class AccountInput {
     private String fullName;
 
     @NotEmpty
-    private Set<Authority> authorities;
+    private Set<@NotNull Authority> authorities;
 }

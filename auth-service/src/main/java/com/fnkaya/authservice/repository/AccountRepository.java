@@ -1,6 +1,6 @@
 package com.fnkaya.authservice.repository;
 
-import com.fnkaya.authservice.domain.Account;
+import com.fnkaya.authservice.service.domain.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
